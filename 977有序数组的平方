@@ -1,0 +1,16 @@
+class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        left=0
+        right=len(nums)-1
+        cur=len(nums)-1
+        ans=[0]*len(nums)
+        while left<=right:
+            if nums[left]*nums[left]>nums[right]*nums[right]:
+                ans[cur]=nums[left]**2
+                left=left+1
+            else:
+                ans[cur]=nums[right]**2
+                right=right-1
+            cur=cur-1
+        return ans
+        #采用了双指针
